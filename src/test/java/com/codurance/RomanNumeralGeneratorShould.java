@@ -29,4 +29,9 @@ public class RomanNumeralGeneratorShould {
   void return_III_for_3() {
     assertEquals("III", romanNumeral.convert(3));
   }
+
+  @Test
+  void return_IV_for_4() {
+    assertEquals("IV", romanNumeral.convert(4));
+  }
 }
