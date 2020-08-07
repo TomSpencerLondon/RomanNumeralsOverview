@@ -11,4 +11,10 @@ public class RomanNumeralGeneratorShould {
     RomanNumeralGenerator romanNumeral = new RomanNumeralGenerator();
     assertEquals("I", romanNumeral.convert(1));
   }
+
+  @Test
+  void return_II_for_2() {
+    RomanNumeralGenerator romanNumeral = new RomanNumeralGenerator();
+    assertEquals("II", romanNumeral.convert(2));
+  }
 }
