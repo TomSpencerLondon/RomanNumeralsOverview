@@ -5,15 +5,11 @@ public class RomanNumeralGenerator {
   public static String romanFor(int decimal) {
     String roman = "";
 
-    for (RomanToDecimal romanToDecimal : RomanToDecimal.values()){
-      if (decimal >= romanToDecimal.decimal){
+    for (RomanToDecimal romanToDecimal : RomanToDecimal.values()) {
+      while (decimal >= romanToDecimal.decimal) {
         roman += romanToDecimal.roman;
         decimal -= romanToDecimal.decimal;
       }
-    }
-
-    for (int i = 0; i < decimal; ++i){
-      roman += "I";
     }
 
     return roman;
@@ -21,7 +17,8 @@ public class RomanNumeralGenerator {
 
   enum RomanToDecimal {
     TEN("X", 10),
-    FIVE("V", 5);
+    FIVE("V", 5),
+    ONE("I", 1);
 
     private final String roman;
     private final int decimal;
