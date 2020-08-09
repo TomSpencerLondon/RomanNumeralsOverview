@@ -1,6 +1,19 @@
 package com.codurance;
 
+import java.util.Map;
+import org.junit.jupiter.params.ParameterizedTest;
+
 public class RomanNumeralGenerator {
+  private static Map<Character, Integer> romans = Map.of(
+      'I', 1,
+      'V', 5,
+      'X', 10,
+      'L', 50,
+      'C', 100,
+      'D', 500,
+      'M', 1000
+  );
+
 
   public static String romanFor(int decimal) {
     String roman = "";
@@ -13,6 +26,20 @@ public class RomanNumeralGenerator {
     }
 
     return roman;
+  }
+
+  public static int arabicFor(String roman){
+    int arabic = romans.get(roman.charAt(roman.length() - 1));
+
+    for (int i = roman.length() - 2; i >= 0; i--){
+      if (romans.get(roman.charAt(i)) < romans.get(roman.charAt(i + 1))){
+        arabic -= romans.get(roman.charAt(i));
+      }else {
+        arabic += romans.get(roman.charAt(i));
+      }
+    }
+
+    return arabic;
   }
 
   enum RomanToDecimal {
@@ -36,18 +63,6 @@ public class RomanNumeralGenerator {
     RomanToDecimal(String roman, int decimal) {
       this.roman = roman;
       this.decimal = decimal;
-    }
-  }
-
-  enum DecimalToRoman {
-    TEN(10, "X"),
-    NINE(9, "IX"),
-    FIVE(5, "V"),
-    FOUR(4, "IV"),
-    ONE(1, "I");
-
-    DecimalToRoman(int arabic, String roman) {
-      throw new UnsupportedOperationException("Implement me!");
     }
   }
 }
