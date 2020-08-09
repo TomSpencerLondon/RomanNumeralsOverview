@@ -20,5 +20,6 @@ public class RomanNumeralGeneratorShould {
     assertEquals("XVIII", romanFor(18));
     assertEquals("XXX", romanFor(30));
     assertEquals("MCMXCIV", romanFor(1994));
+    assertEquals("MMMCDXCIX", romanFor(3499));
   }
 }
