@@ -1,39 +1,16 @@
 package com.codurance;
 
+import static com.codurance.RomanNumeralGenerator.romanFor;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.CsvSource;
 
 public class RomanNumeralGeneratorShould {
 
-  private RomanNumeralGenerator romanNumeral;
-
-  @BeforeEach
-  void setUp() {
-    romanNumeral = new RomanNumeralGenerator();
-  }
-
-  @ParameterizedTest
-  @CsvSource({
-      "1, I",
-      "2, II",
-      "3, III"
-  })
-  void return_I_for_1(int arabic, String roman) {
-    assertEquals(roman, romanNumeral.convert(arabic));
-  }
-
   @Test
-  void return_IV_for_4() {
-    assertEquals("IV", romanNumeral.convert(4));
-  }
-
-  @Test
-  void return_V_for_5() {
-    assertEquals("V", romanNumeral.convert(5));
+  void generate_a_roman_numeral_for_a_given_decimal_number() {
+    assertEquals("I", romanFor(1));
+    assertEquals("II", romanFor(2));
+    assertEquals("III", romanFor(3));
   }
 }
