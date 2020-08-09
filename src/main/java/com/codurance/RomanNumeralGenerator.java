@@ -16,6 +16,14 @@ public class RomanNumeralGenerator {
   }
 
   enum RomanToDecimal {
+    THOUSAND("M", 1000),
+    NINE_HUNDRED("CM", 900),
+    FIVE_HUNDRED("D", 500),
+    FOUR_HUNDRED("CD", 400),
+    HUNDRED("C", 100),
+    NINETY("XC", 90),
+    FIFTY("L", 50),
+    FORTY("XL", 40),
     TEN("X", 10),
     NINE("IX", 9),
     FIVE("V", 5),
@@ -28,6 +36,18 @@ public class RomanNumeralGenerator {
     RomanToDecimal(String roman, int decimal) {
       this.roman = roman;
       this.decimal = decimal;
+    }
+  }
+
+  enum DecimalToRoman {
+    TEN(10, "X"),
+    NINE(9, "IX"),
+    FIVE(5, "V"),
+    FOUR(4, "IV"),
+    ONE(1, "I");
+
+    DecimalToRoman(int arabic, String roman) {
+      throw new UnsupportedOperationException("Implement me!");
     }
   }
 }
