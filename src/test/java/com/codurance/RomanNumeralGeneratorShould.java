@@ -12,8 +12,10 @@ public class RomanNumeralGeneratorShould {
     assertEquals("I", romanFor(1));
     assertEquals("II", romanFor(2));
     assertEquals("III", romanFor(3));
+    assertEquals("IV", romanFor(4));
     assertEquals("V", romanFor(5));
     assertEquals("VII", romanFor(7));
+    assertEquals("IX", romanFor(9));
     assertEquals("X", romanFor(10));
     assertEquals("XVIII", romanFor(18));
     assertEquals("XXX", romanFor(30));
